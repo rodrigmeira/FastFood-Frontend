@@ -25,29 +25,42 @@
     }
 
     &__CardContainer {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
         justify-content: center;
-        gap: 130px;
+        gap: 136px;
     }
 
     &__Card {
         background-image: url(../../Assets/Images/backgroundCardRed.png);
-        display: flex;
+        display: grid;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         height: 210px;
         width: 160px;
         flex: 1;
         border: none;
-        padding: 2.5vw;
+        padding: 2.2vw;
         border-radius: 15px;
         box-shadow: rgba(0, 0, 0, 0.07) 0px 9px 20px 5px;
+        transition: .2s ease-in-out;
 
         position: relative;
 
+        &.Green-background {
+            background-image: url(../../Assets/Images/backgroundCardGreen.png);
+        }
+
+        &.Yellow-background {
+            background-image: url(../../Assets/Images/backgroundCardYellow.png);
+        }
+
         &:hover {
             cursor: pointer;
+            transform: translateY(-7px);
+            transition: .2s ease-in-out;
         }
 
         &::before {
@@ -56,45 +69,75 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 23vh;
+            height: 22vh;
             background-color: $white;
             border-radius: 15px 15px 13px 13px;
         }
     }
 
     &__Card img {
-        z-index: 1;
-        max-width: 100%;
-        height: auto;
+        width: 140px;
+        height: 15.7vh;
         position: relative;
-        bottom: 50px;
+        bottom: 40px;
+        filter: drop-shadow(1px 2px 4px $black);
     }
 
     &__Card h2 {
         font-size: 20px;
         font-weight: 600;
-        z-index: 1;
         margin: 0;
         position: relative;
-        bottom: 60px;
+        bottom: 40px;
     }
 
     &__Description {
         font-size: 13px;
         color: $black;
         margin: 5px 0;
-        z-index: 1;
         margin: 0;
         position: relative;
-        bottom: 55px;
+        bottom: 35px;
     }
 
     &__Price {
         margin-top: auto;
-        z-index: 1;
         font-size: 20px;
         font-weight: 600;
         position: relative;
-        bottom: 20px;
+    }
+
+    &__Buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin: 30px;
+        padding-top: 40px;
+        padding-right: 207px;
+    }
+
+    &__CancelButton, &__FinalizeButton {
+        padding: 20px;
+        width: 20vw;
+        font-size: 16px;
+        background-color: $white;
+        font-size: 20px;
+        font-weight: 600;
+        color: $dark-green;
+        border: 2px solid $dark-green;
+        border-radius: 20px;
+        margin-left: 50px;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+
+        &:hover {
+            transform: translateY(-7px);
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+            transition: .2s ease-in-out;
+        }
+    }
+
+    &__FinalizeButton {
+        background-color: $dark-green;
+        color: $white;
     }
 }
